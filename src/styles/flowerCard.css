@@ -1,0 +1,78 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  max-width: 350px;
+  width: 100%;
+}
+
+/* Адаптивность карточек для разных экранов */
+@media (min-width: 1920px) {
+  .card {
+    max-width: 380px;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .card {
+    max-width: 360px;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .card {
+    max-width: 340px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .card {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .card {
+    max-width: 100%;
+  }
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
+.card-info {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.flower-name {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #222;
+}
+
+.flower-price {
+  font-size: 0.8rem;
+  color: #4e4e4e;
+  font-weight: 400;
+}
+
+.img-container {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 35px;
+  overflow: hidden;
+  background: #f0f0f0;
+  border: 1px solid #999;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
