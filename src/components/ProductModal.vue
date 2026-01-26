@@ -44,8 +44,6 @@ const handleSubmitForm = async () => {
 
   const BOT_TOKEN = import.meta.env.VITE_BOT_TOKEN;
   const CHAT_ID = import.meta.env.VITE_CHAT_ID;
-  console.log(BOT_TOKEN)
-  console.log(CHAT_ID)
   
   const message = `
 <b>🚀 Новая заявка с сайта!</b>
