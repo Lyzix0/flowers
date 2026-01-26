@@ -34,3 +34,5 @@ coverage
 
 # Vitest
 __screenshots__/
+all_code.txt
+collector.py
