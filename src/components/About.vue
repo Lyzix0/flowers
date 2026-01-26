@@ -4,7 +4,6 @@
     <h1 class="main-title">О НАС</h1>
     <div class="about-content">
       <div class="about-section">
-        <h2 class="contact-title">Floramania®</h2>
         <div class="about-columns">
           <div class="about-text">
             <p class="contact-description">

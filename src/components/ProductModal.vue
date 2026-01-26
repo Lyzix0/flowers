@@ -11,7 +11,7 @@ const handleContact = () => {
 };
 
 const handleAvito = () => {
-  window.open('https://www.avito.ru', '_blank');
+  window.open('https://www.avito.ru/moskva/rasteniya/amarillis_lukovitsy_v_voske_optroznitsa_7816560257', '_blank');
 };
 </script>
 
