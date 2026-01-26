@@ -1,8 +1,8 @@
 .footer {
-  margin-top: 80px;
-  padding: 60px 0 30px;
-  border-top: 1.5px solid #424242;
-  background: #fff;
+  margin-top: 120px;
+  padding: 80px 0 40px;
+  border-top: 1px solid #B0B7A6;
+  background: transparent;
 }
 
 .footer-content {
@@ -14,84 +14,42 @@
   gap: 60px;
 }
 
-.footer-section {
-  display: flex;
-  flex-direction: column;
-}
-
 .footer-logo {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Outfit', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
-  font-size: 1.5rem;
-  color: #202020;
-  margin: 0 0 15px 0;
-  letter-spacing: -0.5px;
+  font-style: italic;
+  font-size: 2rem;
+  color: #3E3229;
+  margin: 0 0 20px 0;
 }
 
 .footer-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Outfit', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 0.95rem;
-  color: #666;
-  margin: 0;
-  line-height: 1.7;
-  letter-spacing: -0.2px;
+  color: #5C5550;
+  line-height: 1.6;
+  font-weight: 500;
 }
 
 .footer-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Outfit', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: 1.3rem;
-  color: #222;
-  margin: 0 0 25px 0;
-  letter-spacing: -0.3px;
+  font-size: 1.1rem;
+  color: #3E3229;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 30px 0;
 }
 
+/* FAQ Styling */
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .faq-item {
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 15px;
-  animation: fadeInUp 0.5s ease forwards;
-  opacity: 0;
-}
-
-.faq-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.faq-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.faq-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.faq-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.faq-item:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-.faq-item:nth-child(6) {
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border-bottom: 1px solid #B0B7A6;
+  padding-bottom: 10px;
 }
 
 .faq-question {
@@ -102,271 +60,103 @@
   background: none;
   border: none;
   text-align: left;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Outfit', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #222;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #3E3229;
   cursor: pointer;
-  padding: 12px 0;
+  padding: 15px 0;
   transition: color 0.2s;
-  letter-spacing: -0.3px;
 }
 
 .faq-question:hover {
-  color: #070707;
+  color: #BC8F8F;
 }
 
 .faq-icon {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: #666;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  flex-shrink: 0;
-  margin-left: 15px;
-}
-
-.faq-question.active .faq-icon {
-  transform: rotate(180deg);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
 }
 
 .faq-answer {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Outfit', sans-serif;
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.8;
-  padding: 8px 0 0 0;
-  overflow: hidden;
-  letter-spacing: -0.2px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  color: #5C5550;
+  line-height: 1.6;
+  padding-bottom: 15px;
+  font-weight: 500;
 }
 
-.faq-enter-active {
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-leave-active {
-  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-enter-from {
-  max-height: 0;
-  opacity: 0;
-  padding-top: 0;
-  transform: translateY(-5px);
-}
-
-.faq-enter-to {
-  max-height: 500px;
-  opacity: 1;
-  padding-top: 5px;
-  transform: translateY(0);
-}
-
-.faq-leave-from {
-  max-height: 500px;
-  opacity: 1;
-  padding-top: 5px;
-  transform: translateY(0);
-}
-
-.faq-leave-to {
-  max-height: 0;
-  opacity: 0;
-  padding-top: 0;
-  transform: translateY(-5px);
+/* --- НОВЫЕ СТИЛИ КНОПОК --- */
+.footer-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Отступ между кнопками */
 }
 
 .footer-button {
-  font-family: 'Outfit';
-  padding: 12px 30px;
-  background: #070707;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  width: 100%;
+  min-width: unset;
+  padding: 18px 24px;
+  font-family: 'Raleway', sans-serif;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s;
-  letter-spacing: 0.5px;
-  margin-bottom: 15px;
-  width: 200px;
-  min-width: 200px;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-.footer-button:hover {
-  background: #333;
+/* Основная кнопка (Связаться) - Темная заливка */
+.footer-button-primary {
+  background: #3E3229;
+  color: #F2F0EB;
+  border: 1px solid #3E3229;
 }
 
+.footer-button-primary:hover {
+  background: #54463C;
+  transform: translateY(-2px); /* Легкий подъем */
+  box-shadow: 0 5px 15px rgba(62, 50, 41, 0.2);
+}
+
+/* Вторичная кнопка (Авито) - Прозрачная с рамкой */
 .footer-button-avito {
-  background: #008539;
+  background: transparent;
+  color: #3E3229;
+  border: 2px solid #3E3229; /* Рамка потолще */
 }
 
 .footer-button-avito:hover {
-  background: #005a26;
+  background: rgba(62, 50, 41, 0.05);
+  color: #000;
 }
 
 .footer-copyright {
-  font-family: 'Outfit';
-  font-size: 0.9rem;
-  color: #999;
-  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  color: #999; /* Чуть светлее */
+  margin-top: 30px;
+  font-weight: 500;
 }
 
-/* Адаптивность */
-@media (min-width: 1920px) {
+/* Мобильная адаптивность */
+@media (max-width: 900px) {
   .footer-content {
-    max-width: 1600px;
-    padding: 0 60px;
-    gap: 80px;
-  }
-}
-
-@media (min-width: 1280px) and (max-width: 1919px) {
-  .footer-content {
+    grid-template-columns: 1fr;
     gap: 50px;
+    text-align: center; /* Центрируем текст на мобильном */
   }
-}
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .footer-content {
-    padding: 0 30px;
-    gap: 40px;
+  .footer-buttons-container {
+    max-width: 300px; /* Ограничиваем ширину кнопок */
+    margin: 0 auto; /* Центрируем блок кнопок */
   }
-  
-  .footer-title {
-    font-size: 1rem;
-  }
-  
+
   .faq-question {
-    font-size: 0.9rem;
-  }
-  
-  .faq-answer {
-    font-size: 0.85rem;
-  }
-}
-
-@media (min-width: 900px) and (max-width: 1023px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 0 25px;
-  }
-  
-  .footer-section {
-    text-align: center;
-  }
-  
-  .footer-button {
-    margin: 0 auto 15px;
-    width: 200px;
-    min-width: 200px;
-  }
-  
-  .footer-button:last-of-type {
-    margin-bottom: 30px;
-  }
-}
-
-@media (max-width: 899px) {
-  .footer {
-    margin-top: 60px;
-    padding: 40px 0 20px;
-  }
-  
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 0 20px;
-  }
-  
-  .footer-section {
-    text-align: center;
-  }
-  
-  .footer-logo {
-    font-size: 1.3rem;
-  }
-  
-  .footer-title {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-  
-  .faq-question {
-    font-size: 0.85rem;
-    padding: 8px 0;
-  }
-  
-  .faq-answer {
-    font-size: 0.8rem;
-  }
-  
-  .faq-list {
-    gap: 12px;
-  }
-  
-  .faq-item {
-    padding-bottom: 12px;
-  }
-  
-  .footer-button {
-    margin: 0 auto 15px;
-    font-size: 0.9rem;
-    padding: 10px 25px;
-    width: 200px;
-    min-width: 200px;
-  }
-  
-  .footer-button:last-of-type {
-    margin-bottom: 25px;
-  }
-  
-  .footer-copyright {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer {
-    margin-top: 40px;
-    padding: 30px 0 15px;
-  }
-  
-  .footer-content {
-    padding: 0 15px;
-    gap: 30px;
-  }
-  
-  .footer-logo {
-    font-size: 1.2rem;
-  }
-  
-  .footer-title {
-    font-size: 0.95rem;
-  }
-  
-  .faq-question {
-    font-size: 0.8rem;
-  }
-  
-  .faq-answer {
-    font-size: 0.75rem;
-  }
-  
-  .footer-button {
-    width: 200px;
-    min-width: 200px;
-    max-width: 200px;
-    margin: 0 auto 15px;
-  }
-  
-  .footer-button:last-of-type {
-    margin-bottom: 25px;
+    text-align: left; /* Вопросы оставляем слева */
   }
 }

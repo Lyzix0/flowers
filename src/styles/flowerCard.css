@@ -1,78 +1,75 @@
 .card {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
   cursor: pointer;
-  transition: opacity 0.2s;
-  max-width: 350px;
   width: 100%;
+  position: relative;
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
 }
 
-/* Адаптивность карточек для разных экранов */
-@media (min-width: 1920px) {
-  .card {
-    max-width: 380px;
-  }
-}
-
-@media (min-width: 1440px) and (max-width: 1919px) {
-  .card {
-    max-width: 360px;
-  }
-}
-
-@media (min-width: 1280px) and (max-width: 1439px) {
-  .card {
-    max-width: 340px;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .card {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 1023px) {
-  .card {
-    max-width: 100%;
-  }
-}
-
-.card:hover {
-  opacity: 0.8;
-}
-
-.card-info {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.flower-name {
-  font-weight: 800;
-  font-size: 0.9rem;
-  color: #222;
-}
-
-.flower-price {
-  font-size: 0.8rem;
-  color: #4e4e4e;
-  font-weight: 400;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .img-container {
   width: 100%;
-  aspect-ratio: 1;
-  border-radius: 35px;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
   overflow: hidden;
-  background: #f0f0f0;
-  border: 1px solid #999;
+  position: relative;
+  margin-bottom: 12px; /* Небольшой отступ от картинки до текста снизу */
+  background-color: rgba(255,255,255,0.5);
 }
 
 .img-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+
+.card:hover .img-container img {
+  transform: scale(1.05);
+}
+
+.card-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Выравнивание по центру по вертикали */
+  width: 100%;
+  padding: 0 5px; /* Убрал лишние вертикальные паддинги */
+  box-sizing: border-box;
+}
+
+.flower-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #222;
+  font-style: italic;
+  letter-spacing: 0px;
+  line-height: 1.1; /* Чтобы не было больших разрывов если перенос */
+}
+
+.flower-price {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  color: #3E3229;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap; /* Цена не должна переноситься */
+}
+
+/* Мобильная коррекция для шрифтов внутри карточки */
+@media (max-width: 600px) {
+  .flower-name {
+    font-size: 1.25rem;
+  }
+  .flower-price {
+    font-size: 0.9rem;
+  }
 }

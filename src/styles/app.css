@@ -1,569 +1,165 @@
+:root {
+  --bg-canvas: #F2F0EB;
+  --text-primary: #3E3229;
+  --text-secondary: #5C5550;
+  --accent: #BC8F8F;
+  --border-line: #B0B7A6;
+  --btn-fill: #3E3229;
+  
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Raleway', sans-serif;
+  --radius: 12px;
+}
+
 body { 
   margin: 0; 
-  padding: 0 20px 0 20px; 
-  font-family: 'Outfit', sans-serif; 
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  font-weight: 500; 
 }
 
 .page {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
+/* --- HEADER --- */
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 25px 0;
-  border-bottom: 1.5px solid #424242;
+  align-items: baseline;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-line);
+  margin-bottom: 80px;
 }
 
 .logo {
-  font-family: 'Outfit';
-  font-weight: 800;
-  font-size: 2rem;
-  color: #202020;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.2rem;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
 }
 
 .nav a {
-  margin-left: 30px;
+  margin-left: 40px;
   text-decoration: none;
-  color: #333;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
+.nav a.active {
+  color: var(--accent);
+}
+
+/* --- TYPOGRAPHY & LAYOUT --- */
 .main-title {
-  font-size: 4rem;
-  font-family: 'Outfit';
-  font-weight: 900;
-  margin: 50px 0;
-  letter-spacing: -2px;
+  font-size: 4.5rem;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 0 60px 0;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1;
 }
 
-.layout-grid {
+.category-block {
+  margin-bottom: 100px;
+}
+
+.category-header {
   display: flex;
-  gap: 40px;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
-.sidebar {
-  width: 150px;
-  flex-shrink: 0;
+.category-title {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-weight: 700;
 }
 
-.sidebar p {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #666;
-  line-height: 1.2;
-  margin: 0;
+.category-line {
+  height: 1.5px;
+  background: var(--border-line);
+  width: 100%;
+  opacity: 0.8;
 }
 
 .catalog {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 350px));
-  gap: 40px 35px;
-  flex-grow: 1;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  column-gap: 40px;
+  row-gap: 80px;
+  justify-content: center;
 }
 
-/* Адаптивность для больших мониторов (1920px+) */
-@media (min-width: 1920px) {
-  .page {
-    max-width: 1600px;
-    padding: 0 60px;
-  }
-  
-  .catalog {
-    grid-template-columns: repeat(auto-fill, minmax(380px, 380px));
-    gap: 50px 45px;
-  }
-  
-  .main-title {
-    font-size: 4.5rem;
-    margin: 60px 0;
-  }
-  
-  .logo {
-    font-size: 2.2rem;
-  }
-}
-
-/* Адаптивность для средних больших мониторов (1440px - 1919px) */
-@media (min-width: 1440px) and (max-width: 1919px) {
-  .page {
-    max-width: 1400px;
-    padding: 0 50px;
-  }
-  
-  .catalog {
-    grid-template-columns: repeat(auto-fill, minmax(360px, 360px));
-    gap: 45px 40px;
-  }
-}
-
-/* Адаптивность для средних мониторов (1280px - 1439px) */
-@media (min-width: 1280px) and (max-width: 1439px) {
-  .page {
-    max-width: 1200px;
-    padding: 0 40px;
-  }
-  
-  .catalog {
-    grid-template-columns: repeat(auto-fill, minmax(340px, 340px));
-    gap: 40px 35px;
-  }
-  
-  .main-title {
-    font-size: 3.5rem;
-  }
-}
-
-/* Адаптивность для маленьких ноутбуков (1024px - 1279px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .page {
-    max-width: 1000px;
-    padding: 0 30px;
-  }
-  
-  .catalog {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
-    gap: 35px 30px;
-  }
-  
-  .main-title {
-    font-size: 3rem;
-    margin: 40px 0;
-  }
-  
-  .logo {
-    font-size: 1.8rem;
-  }
-  
-  .nav a {
-    margin-left: 20px;
-    font-size: 0.85rem;
-  }
-  
-  .layout-grid {
-    gap: 30px;
-  }
-  
-  .sidebar {
-    width: 130px;
-  }
-}
-
-/* Адаптивность для планшетов и маленьких ноутбуков (900px - 1023px) */
-@media (min-width: 900px) and (max-width: 1023px) {
-  .page {
-    padding: 0 25px;
-  }
-  
-  .catalog { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 30px 25px;
-  }
-  
-  .layout-grid { 
-    flex-direction: column; 
-    gap: 30px;
-  }
-  
-  .sidebar {
-    width: 100%;
-  }
-  
-  .main-title {
-    font-size: 2.5rem;
-    margin: 35px 0;
-  }
-  
-  .logo {
-    font-size: 1.6rem;
-  }
-  
-  .nav a {
-    margin-left: 15px;
-    font-size: 0.8rem;
-  }
-}
-
-/* Адаптивность для мобильных устройств (до 899px) */
-@media (max-width: 899px) {
-  body {
-    padding: 0 15px;
-  }
-  
-  .page {
-    padding: 0 15px;
-  }
-  
-  .catalog { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 25px 20px;
-  }
-  
-  .layout-grid { 
-    flex-direction: column; 
-    gap: 25px;
-  }
-  
-  .sidebar {
-    width: 100%;
-  }
-  
-  .main-title {
-    font-size: 2rem;
-    margin: 30px 0;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-  }
-  
-  .nav a {
-    margin-left: 12px;
-    font-size: 0.75rem;
-  }
-  
-  .header {
-    padding: 20px 0;
-    flex-wrap: wrap;
-  }
-}
-
-/* Адаптивность для очень маленьких экранов (до 600px) */
+/* --- АДАПТИВ ДЛЯ МОБИЛЬНЫХ (ВАЖНЫЕ ПРАВКИ) --- */
 @media (max-width: 600px) {
-  body {
-    padding: 0 10px;
-  }
-  
   .page {
-    padding: 0 10px;
+    padding: 0 15px; /* Уменьшили боковые отступы */
   }
-  
-  .catalog {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
+
+  /* Компактная шапка */
   .header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
+    padding: 20px 0 15px 0; /* Меньше воздуха */
+    margin-bottom: 30px; /* Подтянули контент выше */
   }
-  
-  .nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+
+  .logo {
+    font-size: 1.8rem; /* Чуть меньше логотип */
   }
   
   .nav a {
-    margin-left: 0;
-    font-size: 0.7rem;
+    margin: 0 10px; /* Равные отступы ссылок */
+    font-size: 0.8rem;
   }
   
+  /* Уменьшаем огромный заголовок */
   .main-title {
-    font-size: 1.5rem;
-    margin: 25px 0;
-  }
-}
-
-/* Модальное окно */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-}
-
-/* Анимация появления модального окна */
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.15s ease;
-}
-
-.modal-enter-active .modal-content,
-.modal-leave-active .modal-content {
-  transition: transform 0.15s ease, opacity 0.15s ease;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
-
-.modal-enter-from .modal-content,
-.modal-leave-to .modal-content {
-  transform: scale(0.9) translateY(20px);
-  opacity: 0;
-}
-
-.modal-enter-to .modal-content,
-.modal-leave-from .modal-content {
-  transform: scale(1) translateY(0);
-  opacity: 1;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 20px;
-  max-width: 600px;
-  width: 100%;
-  max-height: 95vh;
-  overflow-y: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Адаптивность модального окна для больших экранов */
-@media (min-width: 1920px) {
-  .modal-content {
-    max-width: 700px;
-  }
-  
-  .modal-info {
-    padding: 40px;
-  }
-  
-  .modal-title {
-    font-size: 1.8rem;
-  }
-  
-  .modal-price {
-    font-size: 1.2rem;
-  }
-  
-  .modal-description {
-    font-size: 1.2rem;
-  }
-}
-
-@media (min-width: 1440px) and (max-width: 1919px) {
-  .modal-content {
-    max-width: 650px;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .modal-content {
-    max-width: 550px;
-  }
-  
-  .modal-info {
-    padding: 25px;
-  }
-}
-
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.1);
-  border: none;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: background 0.2s;
-}
-
-.modal-close:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.modal-image {
-  width: 100%;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 20px 20px 0 0;
-}
-
-.modal-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal-info {
-  padding: 30px;
-}
-
-.modal-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #222;
-  margin: 0 0 10px 0;
-  letter-spacing: 0.5px;
-}
-
-.modal-price {
-  font-size: 1.1rem;
-  color: #4e4e4e;
-  font-weight: 400;
-  margin: 0 0 15px 0;
-}
-
-.modal-description {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Outfit', sans-serif;
-  font-size: 1.1rem;
-  color: #383838;
-  line-height: 1.6;
-  margin: 0 0 30px 0;
-  letter-spacing: -0.2px;
-}
-
-.modal-buttons {
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-}
-
-.contact-button {
-  flex: 1;
-  font-family: 'Outfit';
-  padding: 15px 30px;
-  background: #070707;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
-  letter-spacing: 0.5px;
-}
-
-.contact-button:hover {
-  background: #333;
-}
-
-.avito-button {
-  background: #008539;
-}
-
-.avito-button:hover {
-  background: #005a26;
-}
-
-/* Стили для страницы контактов */
-.contacts-page {
-  min-height: 60vh;
-  padding-bottom: 50px;
-}
-
-.contacts-content {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.contact-section {
-  text-align: center;
-  padding: 40px 0;
-}
-
-.contact-title {
-  font-family: 'Outfit';
-  font-size: 2rem;
-  font-weight: 800;
-  color: #222;
-  margin: 0 0 20px 0;
-  letter-spacing: 0.5px;
-}
-
-.contact-description {
-  font-family: 'Outfit';
-  font-size: 1.1rem;
-  color: #383838;
-  line-height: 1.8;
-  margin: 0 0 40px 0;
-}
-
-.contacts-page .contact-button {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-/* Адаптивность для страницы контактов */
-@media (min-width: 1920px) {
-  .contacts-content {
-    max-width: 800px;
-  }
-  
-  .contact-title {
     font-size: 2.5rem;
+    margin-bottom: 25px;
   }
-  
-  .contact-description {
-    font-size: 1.2rem;
-  }
-}
 
-@media (min-width: 1280px) and (max-width: 1919px) {
-  .contacts-content {
-    max-width: 700px;
+  .category-block {
+    margin-bottom: 50px;
   }
-}
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .contacts-content {
-    max-width: 600px;
+  .category-header {
+    flex-direction: row; /* Оставляем в строку, линия сожмется */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
   }
-  
-  .contact-title {
-    font-size: 1.8rem;
-  }
-  
-  .contact-description {
-    font-size: 1rem;
-  }
-}
 
-@media (max-width: 899px) {
-  .contacts-content {
-    max-width: 100%;
+  .category-title {
+    font-size: 0.8rem;
   }
   
-  .contact-title {
-    font-size: 1.6rem;
-  }
-  
-  .contact-description {
-    font-size: 0.95rem;
-  }
-  
-  .contact-section {
-    padding: 30px 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .contact-title {
-    font-size: 1.4rem;
-  }
-  
-  .contact-description {
-    font-size: 0.9rem;
-  }
-  
-  .contacts-page .contact-button {
-    max-width: 100%;
-    font-size: 1rem;
-    padding: 12px 30px;
+  .catalog {
+    /* Делаем сетку плотнее */
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }

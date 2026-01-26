@@ -33,12 +33,15 @@
 
       <div class="footer-section">
         <h4 class="footer-title">Контакты</h4>
-        <button class="footer-button" @click="$emit('contact')">
-          Связаться с нами
-        </button>
-        <button class="footer-button footer-button-avito" @click="openAvito">
-          Мы на Авито
-        </button>
+        <!-- Обертка для кнопок -->
+        <div class="footer-buttons-container">
+          <button class="footer-button footer-button-primary" @click="$emit('contact')">
+            Связаться с нами
+          </button>
+          <button class="footer-button footer-button-avito" @click="openAvito">
+            Мы на Авито
+          </button>
+        </div>
         <p class="footer-copyright">
           © {{ new Date().getFullYear() }} Floramania®. Все права защищены.
         </p>
@@ -60,7 +63,6 @@ const toggleFaq = (index) => {
 }
 
 const openAvito = () => {
-  // Замените на вашу ссылку на Авито
   window.open('https://www.avito.ru/moskva/rasteniya/amarillis_lukovitsy_v_voske_optroznitsa_7816560257', '_blank')
 }
 
