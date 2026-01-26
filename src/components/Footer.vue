@@ -63,7 +63,8 @@ const toggleFaq = (index) => {
 }
 
 const openAvito = () => {
-  window.open('https://www.avito.ru/moskva/rasteniya/amarillis_lukovitsy_v_voske_optroznitsa_7816560257', '_blank')
+  const avitoLink = import.meta.env.VITE_AVITO_ORDER;
+  window.open(avitoLink, '_blank')
 }
 
 const faqItems = [

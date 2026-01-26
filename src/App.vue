@@ -29,7 +29,8 @@ const setPage = (page) => {
 }
 
 const handleContact = () => {
-  window.open('https://t.me/xlsx_csv', '_blank')
+  const telegramLink = import.meta.env.VITE_TELEGRAM_LINK;
+  window.open(telegramLink, '_blank')
 }
 </script>
 
