@@ -1,74 +1,38 @@
-/* Основной контейнер страницы */
 .about-page {
   width: 100%;
-  padding: 0; /* Убираем все внешние отступы, чтобы поднять контент вплотную */
-  margin: 0;
+  padding-bottom: 60px;
 }
 
-/* Контентная область */
 .about-content {
-  max-width: 1400px; /* Делаем контейнер очень широким */
-  margin: 0 auto;
-  padding: 20px; /* Минимальный отступ от краев экрана */
+  max-width: 100%;
 }
 
-/* Секция с сеткой */
-.about-section {
-  padding: 0; /* Обнуляем внутренние отступы секции */
-}
-
-/* Сетка: текст и фото */
 .about-columns {
   display: grid;
-  grid-template-columns: 1.2fr 1fr; /* Текстовая колонка чуть шире */
-  gap: 60px;
-  align-items: start; /* Выравнивание строго по верхнему краю */
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
 }
 
-/* Текстовый блок */
-.about-text {
-  padding-top: 0; /* Гарантируем отсутствие отступа сверху */
-}
-
-/* Заголовок */
 .contact-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 3rem; /* Крупный, современный заголовок */
-  font-weight: 800;
-  color: #222;
-  margin: 0 0 20px 0; /* Убираем margin-top полностью */
-  line-height: 1.1;
-  letter-spacing: -1px;
+  /* Reuse styling but specific to about headers if needed */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  margin-bottom: 40px;
 }
 
-/* Описание */
+.about-text {
+  padding-right: 20px;
+}
+
 .contact-description {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.2rem;
-  color: #383838;
-  line-height: 1.7;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.05rem;
+  color: #5C5550;
+  line-height: 1.8; /* More breathing room */
   margin-bottom: 30px;
 }
 
-/* Кнопка */
-.contact-button {
-  display: inline-block;
-  font-family: 'Outfit', sans-serif;
-  padding: 18px 40px;
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transition: 0.3s;
-}
-
-.contact-button:hover {
-  background: #333;
-}
-
-/* Изображение */
 .about-image {
   width: 100%;
 }
@@ -76,46 +40,23 @@
 .process-image {
   width: 100%;
   height: auto;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  display: block;
+  border-radius: 12px;
+  /* Soft colored shadow */
+  box-shadow: 20px 20px 0px rgba(176, 183, 166, 0.3); 
 }
 
-/* --- АДАПТИВНОСТЬ --- */
-
-/* Планшеты (до 1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .about-columns {
-    gap: 30px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 60px;
   }
   
-  .contact-title {
-    font-size: 2.2rem;
-  }
-}
-
-/* Мобильные устройства (до 768px) */
-@media (max-width: 768px) {
-  .about-columns {
-    grid-template-columns: 1fr; /* В одну колонку */
-    gap: 40px;
-  }
-
   .about-text {
-    order: 2; /* Текст под картинкой */
-    text-align: center;
+    order: 2;
+    padding-right: 0;
   }
-
+  
   .about-image {
-    order: 1; /* Картинка сверху */
-  }
-
-  .contact-title {
-    font-size: 1.8rem;
-  }
-
-  .about-content {
-    padding-top: 10px;
+    order: 1;
   }
 }
