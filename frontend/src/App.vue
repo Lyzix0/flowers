@@ -1,38 +1,26 @@
 <script setup>
-import { ref, onMounted } from 'vue' // Добавили onMounted
-import axios from 'axios'           // Добавили axios
-import { products } from './data/products.js'
-import FlowerCard from './components/FlowerCard.vue'
-import About from './components/About.vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
 import Footer from './components/Footer.vue'
 import ProductModal from './components/ProductModal.vue'
 import './styles/app.css'
 
-const currentPage = ref('products')
 const selectedProduct = ref(null)
 const isModalOpen = ref(false)
 
-// --- НОВЫЙ КОД ДЛЯ ТРЕКИНГА ---
+// Трекинг (срабатывает 1 раз при загрузке любой страницы сайта)
 const logVisit = async () => {
   try {
-    // Отправляем базовую информацию о посетителе
     await axios.post('/api/visit', {
       screen_resolution: `${window.screen.width}x${window.screen.height}`,
       referrer: document.referrer || 'direct',
       platform: navigator.platform,
       user_agent: navigator.userAgent
     })
-    console.log('Посещение зафиксировано')
-  } catch (error) {
-    // Не выводим ошибку пользователю, чтобы не пугать, если бэкенд упал
-    console.error('Ошибка статистики:', error)
-  }
+  } catch (e) { console.error('Stat error:', e) }
 }
 
-onMounted(() => {
-  logVisit()
-})
-// ------------------------------
+onMounted(() => { logVisit() })
 
 const openModal = (product) => {
   selectedProduct.value = product
@@ -46,14 +34,8 @@ const closeModal = () => {
   document.body.style.overflow = ''
 }
 
-const setPage = (page) => {
-  currentPage.value = page
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-}
-
 const handleContact = () => {
-  const telegramLink = import.meta.env.VITE_TELEGRAM_LINK;
-  window.open(telegramLink, '_blank')
+  window.open(import.meta.env.VITE_TELEGRAM_LINK, '_blank')
 }
 </script>
 
@@ -62,54 +44,22 @@ const handleContact = () => {
     <header class="header">
       <div class="logo">Floramania®</div>
       <nav class="nav">
-        <a
-          href="#"
-          @click.prevent="setPage('products')"
-          :class="{ active: currentPage === 'products' }"
-        >
-          ТОВАРЫ
-        </a>
-        <a
-          href="#"
-          @click.prevent="setPage('about')"
-          :class="{ active: currentPage === 'about' }"
-        >
-          О НАС
-        </a>
+        <!-- router-link автоматически добавляет класс active, когда мы на нужной странице -->
+        <router-link to="/items" active-class="active">ТОВАРЫ</router-link>
+        <router-link to="/about" active-class="active">О НАС</router-link>
       </nav>
     </header>
 
-    <div class="main-content">
-      <!-- Страница товаров -->
-      <div v-if="currentPage === 'products'">
-        <h1 class="main-title">ТОВАРЫ</h1>
+    <main class="main-content">
+      <!-- Здесь будет меняться контент (ItemsView или AboutView) -->
+      <router-view
+        @open-product="openModal"
+        @contact="handleContact"
+      />
+    </main>
 
-        <!-- Новый блок раздела с линией -->
-        <div class="category-block">
-          <div class="category-header">
-            <span class="category-title">АМАРИЛЛИСЫ В ВОСКЕ</span>
-            <div class="category-line"></div>
-          </div>
-
-          <div class="catalog">
-            <FlowerCard
-              v-for="item in products"
-              :key="item.id"
-              :flower="item"
-              @click="openModal(item)"
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- Страница "О нас" -->
-      <About v-if="currentPage === 'about'" @contact="handleContact" />
-    </div>
-
-    <!-- Подвал -->
     <Footer @contact="handleContact" />
 
-    <!-- Исправленное модальное окно (через компонент) -->
     <ProductModal
       :is-open="isModalOpen"
       :product="selectedProduct"
