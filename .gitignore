@@ -37,4 +37,5 @@ __screenshots__/
 all_code.txt
 collector.py
 .keys/
-.env
+frontend/.env
+backend/.env
