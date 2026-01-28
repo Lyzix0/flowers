@@ -8,9 +8,11 @@ services:
       - "8000"
 
   frontend:
-    build: ./frontend
+    build:
+      context: .           # Контекст теперь — корень всего проекта
+      dockerfile: frontend/Dockerfile # Указываем, где лежит сам Dockerfile
     restart: always
     ports:
-      - "80:80"  # Теперь фронтенд — это входная точка
+      - "80:80"
     depends_on:
       - backend
