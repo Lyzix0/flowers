@@ -9,10 +9,13 @@ services:
 
   frontend:
     build:
-      context: .           # Контекст теперь — корень всего проекта
-      dockerfile: frontend/Dockerfile # Указываем, где лежит сам Dockerfile
+      context: .
+      dockerfile: frontend/Dockerfile
     restart: always
     ports:
       - "80:80"
+      - "443:443"  # Пробрасываем порт для HTTPS
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
       - backend
