@@ -16,9 +16,9 @@ FROM nginx:stable-alpine
 # Очищаем дефолтные файлы nginx (на всякий случай)
 RUN rm -rf /usr/share/nginx/html/*
 
-# Копируем билд из первого этапа.
-# ВАЖНО: убедись, что твоя сборка (Vite/Webpack) кладет файлы именно в /app/dist
 COPY yandex_*.html /usr/share/nginx/html/
+COPY google*.html /usr/share/nginx/html/
+
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Копируем конфиг. Путь относительно корня проекта
