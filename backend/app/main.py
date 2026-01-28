@@ -14,7 +14,8 @@ TELEGRAM_CHAT_ID = os.getenv("CHAT_ID")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://84.252.143.106"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
